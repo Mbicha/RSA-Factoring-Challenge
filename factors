@@ -13,7 +13,9 @@ def factors(q):
     n = q / p
 
     print(f"{q}={int(n)}*{p}")
-
-with open(argv[1]) as f:
-    for number in f:
-        factors(eval(number))
+try:
+    with open(argv[1]) as f:
+        for number in f:
+            factors(eval(number))
+except OSError as e:
+    print('open() failed', e)
